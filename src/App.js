@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import api from './services/api';
 import './App.css';
 
@@ -6,8 +6,12 @@ import logo from "./assets/logo.svg";
 
 function App() {
 
+  const [email, setEmail] = useState('');
+
   function handleSubmit(event){
     event.preventDefault(); //evita o reload padrao do form
+
+    console.log(email);
   }
 
   return (
@@ -24,6 +28,7 @@ function App() {
             type="email" 
             id="email" 
             placeholder= "seu melhor e-mail"
+            onChange={event =>setEmail(event.target.value)}
           />
 
           <button className="btn_entrar" type="submit">Entrar</button>
